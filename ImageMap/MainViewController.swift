@@ -10,13 +10,14 @@ import Macaw
 
 class MainViewController: UIViewController {
 
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var mapView: SVGView!
     private var provinces = ProvincesHelper.provinces()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        scrollView.delegate = self
         
         
         
@@ -45,8 +46,6 @@ class MainViewController: UIViewController {
                     print(shape.bounds)
 //                    print(macawImage.bounds)
                     shape.fill = Pattern(content: Image(image: croppedImage!), bounds: shape.bounds!, userSpace: true)
-                    
-                    print("HA")
                 }
             })
         }
@@ -64,4 +63,10 @@ func resizeImage(image: UIImage, x: CGFloat, y: CGFloat, width: CGFloat, height:
         image.draw(in: CGRect(x: x, y: y, width: image.size.width/ratio, height: image.size.height/ratio))
     }
     return resizedImage
+}
+
+extension MainViewController: UIScrollViewDelegate {
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        return mapView
+    }
 }

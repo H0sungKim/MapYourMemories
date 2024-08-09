@@ -1,0 +1,30 @@
+PODS:
+  - CocoaLumberjack (3.8.5):
+    - CocoaLumberjack/Core (= 3.8.5)
+  - CocoaLumberjack/Core (3.8.5)
+  - Macaw (0.9.10):
+    - SWXMLHash
+  - SVGKit (3.0.0):
+    - CocoaLumberjack (~> 3.0)
+  - SWXMLHash (7.0.2)
+
+DEPENDENCIES:
+  - Macaw
+  - SVGKit
+
+SPEC REPOS:
+  trunk:
+    - CocoaLumberjack
+    - Macaw
+    - SVGKit
+    - SWXMLHash
+
+SPEC CHECKSUMS:
+  CocoaLumberjack: 6a459bc897d6d80bd1b8c78482ec7ad05dffc3f0
+  Macaw: 7af8ea57aa2cab35b4a52a45e6f85eea753ea9ae
+  SVGKit: 1ad7513f8c74d9652f94ed64ddecda1a23864dea
+  SWXMLHash: dd733a457e9c4fe93b1538654057aefae4acb382
+
+PODFILE CHECKSUM: 297de4fc7f9037999d45d5d033a4c7b246e3f788
+
+COCOAPODS: 1.15.2

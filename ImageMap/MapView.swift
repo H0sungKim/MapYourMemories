@@ -9,30 +9,34 @@
 import Macaw
 
 class MapView: MacawView {
-    
+    private var mapNode: Group
+    private var provinces = ProvincesHelper.provinces()
     
     required init?(coder aDecoder: NSCoder) {
-        print("HI")
+        print("A")
+        let map = try! SVGParser.parse(resource: "argentinaLow")
+        for province in provinces {
+            map.nodeBy(tag: province.id)?.onTouchPressed({ touch in
+                if let shape = touch.node as? Shape {
+                    
+                    let backgroundShape = Shape(form: Rect(0, 0, shape.bounds!.x+shape.bounds!.w, shape.bounds!.y+shape.bounds!.h))
+                    let image = Image(
+                        image: UIImage(named: "seoul.jpg")!,
+                        aspectRatio: .slice,
+                        w: Int(shape.bounds!.w),
+                        h: Int(shape.bounds!.h)
+                    )
+                    image.place = .move(shape.bounds!.x+(shape.bounds!.w-image.bounds!.w)/2, shape.bounds!.y+(shape.bounds!.h-image.bounds!.h)/2)
+                    let resizedImage = Group(contents: [backgroundShape, image])
+                    shape.fill = Pattern(content: resizedImage, bounds: resizedImage.bounds!, userSpace: true)
+                }
+            })
+        }
+        mapNode = Group(contents: [map], place: .identity)
         
-        let s = Shape(form: Rect(0, 0, 60, 60))
-        let image = UIImage(named: "seoul.jpg")!
-        let a = Image(
-            image: image,
-            aspectRatio: .slice,
-            w: 50,
-            h: 50,
-//            place: .move(100, 100)
-            place: .move(10, 10)
-        )
-        print(a.bounds)
-        let g = Group(contents: [a, s])
-        let shape = Shape(
-            form: Rect(x: 0, y: 0, w: 200, h: 500),
-            fill: Pattern(content: g, bounds: g.bounds!, userSpace: true),
-            stroke: Stroke(fill: Color(val: 0xff9e4f), width: 1))
-        
-//        print(a.bounds)
-        super.init(node: Group(contents: [shape]), coder: aDecoder)
+        super.init(node: mapNode, coder: aDecoder)
     }
-    
+    func transformMapNode(origin: CGPoint, size: CGSize) {
+        mapNode.place = Transform().move(-origin.x, -origin.y).scale(size.width/mapNode.bounds!.w, size.height/mapNode.bounds!.h)
+    }
 }

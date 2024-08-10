@@ -23,6 +23,7 @@
 		96B979D62C65EB8B0089FF45 /* ProvincesHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B979D52C65EB8B0089FF45 /* ProvincesHelper.swift */; };
 		96B979D82C6613BC0089FF45 /* seoul.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 96B979D72C6613BC0089FF45 /* seoul.jpg */; };
 		96B979DA2C6631D00089FF45 /* universe.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 96B979D92C6631D00089FF45 /* universe.jpg */; };
+		96B979DC2C6742580089FF45 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B979DB2C6742580089FF45 /* MapView.swift */; };
 		DCC808D741B4E16280135BC0 /* Pods_ImageMap_ImageMapUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4614B10D3085BC74BDCB651D /* Pods_ImageMap_ImageMapUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +67,7 @@
 		96B979D52C65EB8B0089FF45 /* ProvincesHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProvincesHelper.swift; sourceTree = "<group>"; };
 		96B979D72C6613BC0089FF45 /* seoul.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = seoul.jpg; sourceTree = "<group>"; };
 		96B979D92C6631D00089FF45 /* universe.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = universe.jpg; sourceTree = "<group>"; };
+		96B979DB2C6742580089FF45 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		9DD3DA96E55A0E661B34EC98 /* Pods-ImageMap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImageMap.debug.xcconfig"; path = "Target Support Files/Pods-ImageMap/Pods-ImageMap.debug.xcconfig"; sourceTree = "<group>"; };
 		AF58CCE07BF6E111D3356C81 /* Pods-ImageMapTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImageMapTests.debug.xcconfig"; path = "Target Support Files/Pods-ImageMapTests/Pods-ImageMapTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C131F2E866C3EF39431379F5 /* Pods-ImageMapTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImageMapTests.release.xcconfig"; path = "Target Support Files/Pods-ImageMapTests/Pods-ImageMapTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 				96B979D72C6613BC0089FF45 /* seoul.jpg */,
 				961716312C65E388007383FE /* MainViewController.swift */,
 				9617162F2C65E377007383FE /* Main.storyboard */,
+				96B979DB2C6742580089FF45 /* MapView.swift */,
 			);
 			path = ImageMap;
 			sourceTree = "<group>";
@@ -427,6 +430,7 @@
 			files = (
 				96B979D22C65EB670089FF45 /* Province.swift in Sources */,
 				96B979D62C65EB8B0089FF45 /* ProvincesHelper.swift in Sources */,
+				96B979DC2C6742580089FF45 /* MapView.swift in Sources */,
 				961715FE2C651C9A007383FE /* AppDelegate.swift in Sources */,
 				961716322C65E388007383FE /* MainViewController.swift in Sources */,
 			);

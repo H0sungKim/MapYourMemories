@@ -11,12 +11,11 @@ import Macaw
 class MainViewController: UIViewController {
 
     @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var mapView: SVGView!
+    @IBOutlet weak var mapView: MapView!
     private var provinces = ProvincesHelper.provinces()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         scrollView.delegate = self
         
         
@@ -24,28 +23,17 @@ class MainViewController: UIViewController {
         for province in provinces {
             mapView.node.nodeBy(tag: province.id)?.onTouchPressed({ touch in
                 if let shape = touch.node as? Shape {
-                    let image = UIImage(named: "seoul.jpg")!
                     
-                    
-                    
-                    let croppedImage = resizeImage(image: image, x: shape.bounds!.x, y: shape.bounds!.y, width: shape.bounds!.w, height: shape.bounds!.h)
-//                    image?.width = shape.bounds.w
-//                    image?.height = shape.bounds.h
-//                    let macawImage = Image(image: croppedImage, w: image.size.width, h: image.size.height)
-                    
-//                    Image(image: <#T##MImage#>, xAlign: <#T##Align#>, yAlign: <#T##Align#>, w: <#T##Int#>, h: <#T##Int#>, place: <#T##Transform#>)
-//                    macawImage.xAlign = shape.bounds?.x
-//                    macawImage.w = Int(shape.bounds!.w)
-//                    macawImage.h = Int(shape.bounds!.h)
-                    
-                    
-//                    macawImage.bounds = shape.bounds
-//                    Image(image: UIImage(named: "universe.jpg")!
-//                    print(croppedImage.size)
-                    print(croppedImage?.size)
-                    print(shape.bounds)
-//                    print(macawImage.bounds)
-                    shape.fill = Pattern(content: Image(image: croppedImage!), bounds: shape.bounds!, userSpace: true)
+                    let backgroundShape = Shape(form: Rect(0, 0, shape.bounds!.x+shape.bounds!.w, shape.bounds!.y+shape.bounds!.h))
+                    let image = Image(
+                        image: UIImage(named: "seoul.jpg")!,
+                        aspectRatio: .slice,
+                        w: Int(shape.bounds!.w),
+                        h: Int(shape.bounds!.h)
+                    )
+                    image.place = .move(shape.bounds!.x+(shape.bounds!.w-image.bounds!.w)/2, shape.bounds!.y+(shape.bounds!.h-image.bounds!.h)/2)
+                    let resizedImage = Group(contents: [backgroundShape, image])
+                    shape.fill = Pattern(content: resizedImage, bounds: resizedImage.bounds!, userSpace: true)
                 }
             })
         }
@@ -53,20 +41,10 @@ class MainViewController: UIViewController {
     }
 }
 
-func resizeImage(image: UIImage, x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat) -> UIImage? {
-    let ratio = min(image.size.width / width, image.size.height / height)
-    let newSize = CGSize(width: width+x, height: height+y)
-    
-    let renderer = UIGraphicsImageRenderer(size: newSize)
-    
-    let resizedImage = renderer.image { context in
-        image.draw(in: CGRect(x: x, y: y, width: image.size.width/ratio, height: image.size.height/ratio))
-    }
-    return resizedImage
-}
-
 extension MainViewController: UIScrollViewDelegate {
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        print(scrollView.contentOffset)
+        print(scrollView.contentSize)
         return mapView
     }
 }

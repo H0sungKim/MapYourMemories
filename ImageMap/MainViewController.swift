@@ -23,6 +23,7 @@ class MainViewController: UIViewController {
 
 extension MainViewController: UIScrollViewDelegate {
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        print("***********")
         print(scrollView.contentOffset)
         print(scrollView.contentSize)
         mapView.transformMapNode(origin: scrollView.contentOffset, size: scrollView.contentSize)

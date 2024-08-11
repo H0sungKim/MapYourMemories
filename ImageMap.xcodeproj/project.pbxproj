@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		53BB9CFDE3550CA8B7D86A90 /* Pods_ImageMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1047A7DF900E96C49F9475F0 /* Pods_ImageMap.framework */; };
 		8E631A17E3FF04B74B8C5841 /* Pods_ImageMapTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DBE6BAD12BAFDCAE3CF3EF6 /* Pods_ImageMapTests.framework */; };
+		960F15FB2C67CA490036AE30 /* korea64.svg in Resources */ = {isa = PBXBuildFile; fileRef = 960F15F92C67CA480036AE30 /* korea64.svg */; };
+		960F15FC2C67CA490036AE30 /* korea1024(1).svg in Resources */ = {isa = PBXBuildFile; fileRef = 960F15FA2C67CA490036AE30 /* korea1024(1).svg */; };
 		961715FE2C651C9A007383FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961715FD2C651C9A007383FE /* AppDelegate.swift */; };
 		961716072C651C9B007383FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 961716062C651C9B007383FE /* Assets.xcassets */; };
 		9617160A2C651C9B007383FE /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 961716092C651C9B007383FE /* Base */; };
@@ -49,6 +51,8 @@
 		1047A7DF900E96C49F9475F0 /* Pods_ImageMap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ImageMap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4614B10D3085BC74BDCB651D /* Pods_ImageMap_ImageMapUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ImageMap_ImageMapUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DBE6BAD12BAFDCAE3CF3EF6 /* Pods_ImageMapTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ImageMapTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		960F15F92C67CA480036AE30 /* korea64.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = korea64.svg; sourceTree = "<group>"; };
+		960F15FA2C67CA490036AE30 /* korea1024(1).svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "korea1024(1).svg"; sourceTree = "<group>"; };
 		961715FA2C651C9A007383FE /* ImageMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		961715FD2C651C9A007383FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		961716062C651C9B007383FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -147,6 +151,8 @@
 				9617160B2C651C9B007383FE /* Info.plist */,
 				9617162D2C652A63007383FE /* korea.svg */,
 				96B979D92C6631D00089FF45 /* universe.jpg */,
+				960F15F92C67CA480036AE30 /* korea64.svg */,
+				960F15FA2C67CA490036AE30 /* korea1024(1).svg */,
 				96B979D72C6613BC0089FF45 /* seoul.jpg */,
 				961716312C65E388007383FE /* MainViewController.swift */,
 				9617162F2C65E377007383FE /* Main.storyboard */,
@@ -297,8 +303,10 @@
 				961716072C651C9B007383FE /* Assets.xcassets in Resources */,
 				9617162E2C652A63007383FE /* korea.svg in Resources */,
 				9617160A2C651C9B007383FE /* Base in Resources */,
+				960F15FC2C67CA490036AE30 /* korea1024(1).svg in Resources */,
 				961716302C65E377007383FE /* Main.storyboard in Resources */,
 				96B979D82C6613BC0089FF45 /* seoul.jpg in Resources */,
+				960F15FB2C67CA490036AE30 /* korea64.svg in Resources */,
 				96B979DA2C6631D00089FF45 /* universe.jpg in Resources */,
 				96B979D42C65EB760089FF45 /* argentinaLow.svg in Resources */,
 			);

@@ -14,7 +14,7 @@ class MapView: MacawView {
     
     required init?(coder aDecoder: NSCoder) {
 //        let map = try! SVGParser.parse(resource: "korea400")
-        let map = try! SVGParser.parse(resource: "korea400")
+        let map = try! SVGParser.parse(resource: "aaaa")
 //        for province in provinces {
 //            map.nodeBy(tag: province.id)?.onTouchPressed({ touch in
 //                if let shape = touch.node as? Shape {

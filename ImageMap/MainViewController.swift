@@ -18,15 +18,26 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         
         scrollView.delegate = self
+//        mapView.transformMapNode(origin: CGPoint(x: 0, y: 0), size: UIScreen.main.bounds.size)
+        print(UIScreen.main.bounds.size)
     }
 }
 
 extension MainViewController: UIScrollViewDelegate {
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
-        print("***********")
-        print(scrollView.contentOffset)
-        print(scrollView.contentSize)
+//        print("***********")
+//        print(scrollView.contentOffset)
+//        print(scrollView.contentSize)
+        print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
         mapView.transformMapNode(origin: scrollView.contentOffset, size: scrollView.contentSize)
         return scrollBlankView
+    }
+    func scrollViewDidZoom(_ scrollView: UIScrollView) {
+//        print("===============")
+//        print(scrollView.contentOffset)
+//        print(scrollView.contentSize)
+        print("**********************************")
+        mapView.transformMapNode(origin: scrollView.contentOffset, size: scrollView.contentSize)
+//        return scrollBlankView
     }
 }

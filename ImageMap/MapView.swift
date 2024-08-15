@@ -13,8 +13,8 @@ class MapView: MacawView {
     private var provinces = ProvincesHelper.provinces()
     
     required init?(coder aDecoder: NSCoder) {
-        let map = try! SVGParser.parse(resource: "korea64")
-        
+//        let map = try! SVGParser.parse(resource: "korea400")
+        let map = try! SVGParser.parse(resource: "korea400")
 //        for province in provinces {
 //            map.nodeBy(tag: province.id)?.onTouchPressed({ touch in
 //                if let shape = touch.node as? Shape {
@@ -32,11 +32,14 @@ class MapView: MacawView {
 //                }
 //            })
 //        }
-        mapNode = Group(contents: [map], place: .identity)
         
+        mapNode = Group(contents: [map], place: .identity)
         super.init(node: mapNode, coder: aDecoder)
     }
     func transformMapNode(origin: CGPoint, size: CGSize) {
-        mapNode.place = Transform().move(-origin.x, -origin.y).scale(min(size.width, size.height)/mapNode.bounds!.w, min(size.width, size.height)/mapNode.bounds!.h)
+//        print("size : \(size), bounds : \(mapNode.bounds)")
+        mapNode.place = Transform().move(-origin.x, -origin.y).scale(min(size.width/mapNode.bounds!.w, size.height/mapNode.bounds!.h), min(size.width/mapNode.bounds!.w, size.height/mapNode.bounds!.h))
+//        print(mapNode.place.m11)
+//        print(mapNode.place.m22)
     }
 }

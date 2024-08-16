@@ -1,23 +1,20 @@
 //
 //  Province.swift
-//  GMapsTest
+//  ImageMap
 //
-//  Created by Federico Nieto on 1/15/18.
-//  Copyright © 2018 fede. All rights reserved.
+//  Created by 김호성 on 2024.08.09.
 //
 
 import UIKit
 
-class Province: NSObject {
-    
+struct Province {
+    var id : Int
     var name : String
-    var id : String
-    var cities : [String]
+    var image: UIImage?
     
-    init(name : String, id : String, cities : [String]) {
-        self.name = name
+    init(id: Int, name: String, image: UIImage? = nil) {
         self.id = id
-        self.cities = cities
+        self.name = name
+        self.image = image
     }
-
 }

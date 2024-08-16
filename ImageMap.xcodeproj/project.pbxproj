@@ -9,24 +9,22 @@
 /* Begin PBXBuildFile section */
 		53BB9CFDE3550CA8B7D86A90 /* Pods_ImageMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1047A7DF900E96C49F9475F0 /* Pods_ImageMap.framework */; };
 		8E631A17E3FF04B74B8C5841 /* Pods_ImageMapTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DBE6BAD12BAFDCAE3CF3EF6 /* Pods_ImageMapTests.framework */; };
-		9609E48A2C6DD237000B2D18 /* korea400.svg in Resources */ = {isa = PBXBuildFile; fileRef = 9609E4892C6DD237000B2D18 /* korea400.svg */; };
-		9609E48C2C6DFB78000B2D18 /* aaaa.svg in Resources */ = {isa = PBXBuildFile; fileRef = 9609E48B2C6DFB78000B2D18 /* aaaa.svg */; };
-		960F15FB2C67CA490036AE30 /* korea64.svg in Resources */ = {isa = PBXBuildFile; fileRef = 960F15F92C67CA480036AE30 /* korea64.svg */; };
-		960F15FC2C67CA490036AE30 /* korea1024(1).svg in Resources */ = {isa = PBXBuildFile; fileRef = 960F15FA2C67CA490036AE30 /* korea1024(1).svg */; };
+		9609E48C2C6DFB78000B2D18 /* korea.svg in Resources */ = {isa = PBXBuildFile; fileRef = 9609E48B2C6DFB78000B2D18 /* korea.svg */; };
+		9609E48E2C6F4133000B2D18 /* ProvinceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9609E48D2C6F4133000B2D18 /* ProvinceManager.swift */; };
+		9609E4902C6F675E000B2D18 /* ProvinceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9609E48F2C6F675E000B2D18 /* ProvinceViewController.swift */; };
+		9609E4922C6F6768000B2D18 /* Province.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9609E4912C6F6768000B2D18 /* Province.storyboard */; };
+		9609E4942C6F684E000B2D18 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9609E4932C6F684E000B2D18 /* UIViewController+Ext.swift */; };
 		961715FE2C651C9A007383FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961715FD2C651C9A007383FE /* AppDelegate.swift */; };
 		961716072C651C9B007383FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 961716062C651C9B007383FE /* Assets.xcassets */; };
 		9617160A2C651C9B007383FE /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 961716092C651C9B007383FE /* Base */; };
 		961716152C651C9B007383FE /* ImageMapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961716142C651C9B007383FE /* ImageMapTests.swift */; };
 		9617161F2C651C9B007383FE /* ImageMapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9617161E2C651C9B007383FE /* ImageMapUITests.swift */; };
 		961716212C651C9B007383FE /* ImageMapUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961716202C651C9B007383FE /* ImageMapUITestsLaunchTests.swift */; };
-		9617162E2C652A63007383FE /* korea.svg in Resources */ = {isa = PBXBuildFile; fileRef = 9617162D2C652A63007383FE /* korea.svg */; };
 		961716302C65E377007383FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9617162F2C65E377007383FE /* Main.storyboard */; };
 		961716322C65E388007383FE /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961716312C65E388007383FE /* MainViewController.swift */; };
 		96B979D22C65EB670089FF45 /* Province.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B979D12C65EB670089FF45 /* Province.swift */; };
 		96B979D42C65EB760089FF45 /* argentinaLow.svg in Resources */ = {isa = PBXBuildFile; fileRef = 96B979D32C65EB760089FF45 /* argentinaLow.svg */; };
-		96B979D62C65EB8B0089FF45 /* ProvincesHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B979D52C65EB8B0089FF45 /* ProvincesHelper.swift */; };
 		96B979D82C6613BC0089FF45 /* seoul.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 96B979D72C6613BC0089FF45 /* seoul.jpg */; };
-		96B979DA2C6631D00089FF45 /* universe.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 96B979D92C6631D00089FF45 /* universe.jpg */; };
 		96B979DC2C6742580089FF45 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B979DB2C6742580089FF45 /* MapView.swift */; };
 		DCC808D741B4E16280135BC0 /* Pods_ImageMap_ImageMapUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4614B10D3085BC74BDCB651D /* Pods_ImageMap_ImageMapUITests.framework */; };
 /* End PBXBuildFile section */
@@ -53,10 +51,11 @@
 		1047A7DF900E96C49F9475F0 /* Pods_ImageMap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ImageMap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4614B10D3085BC74BDCB651D /* Pods_ImageMap_ImageMapUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ImageMap_ImageMapUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DBE6BAD12BAFDCAE3CF3EF6 /* Pods_ImageMapTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ImageMapTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9609E4892C6DD237000B2D18 /* korea400.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = korea400.svg; sourceTree = "<group>"; };
-		9609E48B2C6DFB78000B2D18 /* aaaa.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = aaaa.svg; sourceTree = "<group>"; };
-		960F15F92C67CA480036AE30 /* korea64.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = korea64.svg; sourceTree = "<group>"; };
-		960F15FA2C67CA490036AE30 /* korea1024(1).svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "korea1024(1).svg"; sourceTree = "<group>"; };
+		9609E48B2C6DFB78000B2D18 /* korea.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = korea.svg; sourceTree = "<group>"; };
+		9609E48D2C6F4133000B2D18 /* ProvinceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProvinceManager.swift; sourceTree = "<group>"; };
+		9609E48F2C6F675E000B2D18 /* ProvinceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProvinceViewController.swift; sourceTree = "<group>"; };
+		9609E4912C6F6768000B2D18 /* Province.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Province.storyboard; sourceTree = "<group>"; };
+		9609E4932C6F684E000B2D18 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
 		961715FA2C651C9A007383FE /* ImageMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		961715FD2C651C9A007383FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		961716062C651C9B007383FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -67,14 +66,11 @@
 		9617161A2C651C9B007383FE /* ImageMapUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ImageMapUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9617161E2C651C9B007383FE /* ImageMapUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageMapUITests.swift; sourceTree = "<group>"; };
 		961716202C651C9B007383FE /* ImageMapUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageMapUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		9617162D2C652A63007383FE /* korea.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = korea.svg; sourceTree = "<group>"; };
 		9617162F2C65E377007383FE /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		961716312C65E388007383FE /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		96B979D12C65EB670089FF45 /* Province.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Province.swift; sourceTree = "<group>"; };
 		96B979D32C65EB760089FF45 /* argentinaLow.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = argentinaLow.svg; sourceTree = "<group>"; };
-		96B979D52C65EB8B0089FF45 /* ProvincesHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProvincesHelper.swift; sourceTree = "<group>"; };
 		96B979D72C6613BC0089FF45 /* seoul.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = seoul.jpg; sourceTree = "<group>"; };
-		96B979D92C6631D00089FF45 /* universe.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = universe.jpg; sourceTree = "<group>"; };
 		96B979DB2C6742580089FF45 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		9DD3DA96E55A0E661B34EC98 /* Pods-ImageMap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImageMap.debug.xcconfig"; path = "Target Support Files/Pods-ImageMap/Pods-ImageMap.debug.xcconfig"; sourceTree = "<group>"; };
 		AF58CCE07BF6E111D3356C81 /* Pods-ImageMapTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImageMapTests.debug.xcconfig"; path = "Target Support Files/Pods-ImageMapTests/Pods-ImageMapTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -146,23 +142,21 @@
 		961715FC2C651C9A007383FE /* ImageMap */ = {
 			isa = PBXGroup;
 			children = (
+				9609E4932C6F684E000B2D18 /* UIViewController+Ext.swift */,
 				96B979D32C65EB760089FF45 /* argentinaLow.svg */,
 				96B979D12C65EB670089FF45 /* Province.swift */,
+				9609E48D2C6F4133000B2D18 /* ProvinceManager.swift */,
 				961715FD2C651C9A007383FE /* AppDelegate.swift */,
 				961716062C651C9B007383FE /* Assets.xcassets */,
-				96B979D52C65EB8B0089FF45 /* ProvincesHelper.swift */,
 				961716082C651C9B007383FE /* LaunchScreen.storyboard */,
 				9617160B2C651C9B007383FE /* Info.plist */,
-				9617162D2C652A63007383FE /* korea.svg */,
-				96B979D92C6631D00089FF45 /* universe.jpg */,
-				9609E4892C6DD237000B2D18 /* korea400.svg */,
-				9609E48B2C6DFB78000B2D18 /* aaaa.svg */,
-				960F15F92C67CA480036AE30 /* korea64.svg */,
-				960F15FA2C67CA490036AE30 /* korea1024(1).svg */,
+				9609E48B2C6DFB78000B2D18 /* korea.svg */,
 				96B979D72C6613BC0089FF45 /* seoul.jpg */,
 				961716312C65E388007383FE /* MainViewController.swift */,
 				9617162F2C65E377007383FE /* Main.storyboard */,
 				96B979DB2C6742580089FF45 /* MapView.swift */,
+				9609E48F2C6F675E000B2D18 /* ProvinceViewController.swift */,
+				9609E4912C6F6768000B2D18 /* Province.storyboard */,
 			);
 			path = ImageMap;
 			sourceTree = "<group>";
@@ -307,16 +301,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				961716072C651C9B007383FE /* Assets.xcassets in Resources */,
-				9617162E2C652A63007383FE /* korea.svg in Resources */,
 				9617160A2C651C9B007383FE /* Base in Resources */,
-				960F15FC2C67CA490036AE30 /* korea1024(1).svg in Resources */,
 				961716302C65E377007383FE /* Main.storyboard in Resources */,
 				96B979D82C6613BC0089FF45 /* seoul.jpg in Resources */,
-				9609E48C2C6DFB78000B2D18 /* aaaa.svg in Resources */,
-				960F15FB2C67CA490036AE30 /* korea64.svg in Resources */,
-				96B979DA2C6631D00089FF45 /* universe.jpg in Resources */,
+				9609E48C2C6DFB78000B2D18 /* korea.svg in Resources */,
 				96B979D42C65EB760089FF45 /* argentinaLow.svg in Resources */,
-				9609E48A2C6DD237000B2D18 /* korea400.svg in Resources */,
+				9609E4922C6F6768000B2D18 /* Province.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -445,9 +435,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				96B979D22C65EB670089FF45 /* Province.swift in Sources */,
-				96B979D62C65EB8B0089FF45 /* ProvincesHelper.swift in Sources */,
 				96B979DC2C6742580089FF45 /* MapView.swift in Sources */,
+				9609E4942C6F684E000B2D18 /* UIViewController+Ext.swift in Sources */,
+				9609E48E2C6F4133000B2D18 /* ProvinceManager.swift in Sources */,
 				961715FE2C651C9A007383FE /* AppDelegate.swift in Sources */,
+				9609E4902C6F675E000B2D18 /* ProvinceViewController.swift in Sources */,
 				961716322C65E388007383FE /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

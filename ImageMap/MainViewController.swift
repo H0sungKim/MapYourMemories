@@ -17,8 +17,23 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        mapView.delegate = self
+        
         scrollView.delegate = self
         scrollBlankView.belowView = mapView
+    }
+}
+
+extension MainViewController: MapDelegate {
+    func presentProvinceSheet(provinceName: String) {
+        let provinceViewController = UIViewController.getViewController(viewControllerEnum: .province)
+        if let provinceViewController = provinceViewController as? ProvinceViewController {
+            provinceViewController.provinceName = provinceName
+        }
+        if let sheet = provinceViewController.sheetPresentationController {
+            sheet.detents = [.medium()]
+        }
+        present(provinceViewController, animated: true)
     }
 }
 

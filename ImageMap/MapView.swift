@@ -10,15 +10,20 @@ import Macaw
 
 class MapView: MacawView {
     private var mapNode: Group
-    private var provinces = ProvincesHelper.provinces()
+    weak var delegate: MapDelegate?
     
     required init?(coder aDecoder: NSCoder) {
-        let map = try! SVGParser.parse(resource: "argentinaLow")
-//        let map = try! SVGParser.parse(resource: "aaaa")
-        for province in provinces {
-            map.nodeBy(tag: province.id)?.onTouchPressed({ touch in
+        let map = try! SVGParser.parse(resource: "korea")
+        mapNode = Group(contents: [map], place: .identity)
+        super.init(node: mapNode, coder: aDecoder)
+        
+        for province in ProvinceManager.shared.provinces {
+            map.nodeBy(tag: String(province.id))?.onTouchPressed({ [weak self] touch in
+                
+                print(province.name)
+                self?.delegate?.presentProvinceSheet(provinceName: province.name)
+                
                 if let shape = touch.node as? Shape {
-                    
                     let backgroundShape = Shape(form: Rect(0, 0, shape.bounds!.x+shape.bounds!.w, shape.bounds!.y+shape.bounds!.h))
                     let image = Image(
                         image: UIImage(named: "seoul.jpg")!,
@@ -32,9 +37,6 @@ class MapView: MacawView {
                 }
             })
         }
-        
-        mapNode = Group(contents: [map], place: .identity)
-        super.init(node: mapNode, coder: aDecoder)
     }
     func transformMapNode(origin: CGPoint, size: CGSize) {
 //        print("size : \(size), bounds : \(mapNode.bounds)")
@@ -42,4 +44,8 @@ class MapView: MacawView {
 //        print(mapNode.place.m11)
 //        print(mapNode.place.m22)
     }
+}
+
+protocol MapDelegate: AnyObject {
+    func presentProvinceSheet(provinceName: String)
 }

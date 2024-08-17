@@ -14,6 +14,7 @@
 		9609E4902C6F675E000B2D18 /* ProvinceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9609E48F2C6F675E000B2D18 /* ProvinceViewController.swift */; };
 		9609E4922C6F6768000B2D18 /* Province.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9609E4912C6F6768000B2D18 /* Province.storyboard */; };
 		9609E4942C6F684E000B2D18 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9609E4932C6F684E000B2D18 /* UIViewController+Ext.swift */; };
+		9615367C2C70ACA000563983 /* hongik.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9615367B2C70ACA000563983 /* hongik.jpg */; };
 		961715FE2C651C9A007383FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961715FD2C651C9A007383FE /* AppDelegate.swift */; };
 		961716072C651C9B007383FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 961716062C651C9B007383FE /* Assets.xcassets */; };
 		9617160A2C651C9B007383FE /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 961716092C651C9B007383FE /* Base */; };
@@ -56,6 +57,7 @@
 		9609E48F2C6F675E000B2D18 /* ProvinceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProvinceViewController.swift; sourceTree = "<group>"; };
 		9609E4912C6F6768000B2D18 /* Province.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Province.storyboard; sourceTree = "<group>"; };
 		9609E4932C6F684E000B2D18 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
+		9615367B2C70ACA000563983 /* hongik.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = hongik.jpg; sourceTree = "<group>"; };
 		961715FA2C651C9A007383FE /* ImageMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		961715FD2C651C9A007383FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		961716062C651C9B007383FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 				961716062C651C9B007383FE /* Assets.xcassets */,
 				961716082C651C9B007383FE /* LaunchScreen.storyboard */,
 				9617160B2C651C9B007383FE /* Info.plist */,
+				9615367B2C70ACA000563983 /* hongik.jpg */,
 				9609E48B2C6DFB78000B2D18 /* korea.svg */,
 				96B979D72C6613BC0089FF45 /* seoul.jpg */,
 				961716312C65E388007383FE /* MainViewController.swift */,
@@ -301,6 +304,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				961716072C651C9B007383FE /* Assets.xcassets in Resources */,
+				9615367C2C70ACA000563983 /* hongik.jpg in Resources */,
 				9617160A2C651C9B007383FE /* Base in Resources */,
 				961716302C65E377007383FE /* Main.storyboard in Resources */,
 				96B979D82C6613BC0089FF45 /* seoul.jpg in Resources */,

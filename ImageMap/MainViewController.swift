@@ -14,6 +14,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var scrollBlankView: ScrollBlankView!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -25,13 +26,37 @@ class MainViewController: UIViewController {
 }
 
 extension MainViewController: MapDelegate {
+    func dismissProvinceSheet() {
+        if let presentedViewController = self.presentedViewController as? ProvinceViewController {
+            presentedViewController.dismiss(animated: true, completion: nil)
+        }
+    }
+    
     func presentProvinceSheet(provinceName: String) {
+//        guard let presentedViewController = self.presentedViewController as? ProvinceViewController else {
+//            let provinceViewController = UIViewController.getViewController(viewControllerEnum: .province)
+//            if let provinceViewController = provinceViewController as? ProvinceViewController {
+//                provinceViewController.provinceName = provinceName
+//            }
+//            if let sheet = provinceViewController.sheetPresentationController {
+//                sheet.largestUndimmedDetentIdentifier = .medium
+//                sheet.detents = [.medium(), .custom { context in return UIScreen.main.bounds.height/4 }]
+//                sheet.prefersGrabberVisible = true
+//            }
+//            present(provinceViewController, animated: true)
+//            return
+//        }
+//        presentedViewController.provinceName = provinceName
+//        presentedViewController.initializeView()
+        
         let provinceViewController = UIViewController.getViewController(viewControllerEnum: .province)
         if let provinceViewController = provinceViewController as? ProvinceViewController {
             provinceViewController.provinceName = provinceName
         }
         if let sheet = provinceViewController.sheetPresentationController {
-            sheet.detents = [.medium()]
+            sheet.largestUndimmedDetentIdentifier = .medium
+            sheet.detents = [.medium(), .custom { context in return UIScreen.main.bounds.height/4 }]
+            sheet.prefersGrabberVisible = true
         }
         present(provinceViewController, animated: true)
     }
@@ -39,18 +64,12 @@ extension MainViewController: MapDelegate {
 
 extension MainViewController: UIScrollViewDelegate {
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
-//        print("***********")
-//        print(scrollView.contentOffset)
-//        print(scrollView.contentSize)
-        print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
+//        print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
         mapView.transformMapNode(origin: scrollView.contentOffset, size: scrollView.contentSize)
         return scrollBlankView
     }
     func scrollViewDidZoom(_ scrollView: UIScrollView) {
-//        print("===============")
-//        print(scrollView.contentOffset)
-//        print(scrollView.contentSize)
-        print("**********************************")
+//        print("**********************************")
         mapView.transformMapNode(origin: scrollView.contentOffset, size: scrollView.contentSize)
 //        return scrollBlankView
     }

@@ -19,7 +19,6 @@ class MapView: MacawView {
         
         for province in ProvinceManager.shared.provinces {
             map.nodeBy(tag: String(province.id))?.onTouchPressed({ [weak self] touch in
-                print("A")
                 
                 self?.delegate?.presentProvinceSheet(provinceName: province.name)
                 if let shape = touch.node as? Shape {
@@ -58,11 +57,14 @@ class MapView: MacawView {
 //        print(mapNode.place.m22)
     }
     override func touchesBegan(_ touches: Set<MTouch>, with event: MEvent?) {
-        print("b")
         delegate?.dismissProvinceSheet()
-        mapNode.contents.removeSubrange(1..<mapNode.contents.count)
+        removeSelectShape()
         super.touchesBegan(touches, with: event)
         print(mapNode.contents.count)
+    }
+    
+    func removeSelectShape() {
+        mapNode.contents.removeSubrange(1..<mapNode.contents.count)
     }
 }
 

@@ -33,21 +33,6 @@ extension MainViewController: MapDelegate {
     }
     
     func presentProvinceSheet(provinceName: String) {
-//        guard let presentedViewController = self.presentedViewController as? ProvinceViewController else {
-//            let provinceViewController = UIViewController.getViewController(viewControllerEnum: .province)
-//            if let provinceViewController = provinceViewController as? ProvinceViewController {
-//                provinceViewController.provinceName = provinceName
-//            }
-//            if let sheet = provinceViewController.sheetPresentationController {
-//                sheet.largestUndimmedDetentIdentifier = .medium
-//                sheet.detents = [.medium(), .custom { context in return UIScreen.main.bounds.height/4 }]
-//                sheet.prefersGrabberVisible = true
-//            }
-//            present(provinceViewController, animated: true)
-//            return
-//        }
-//        presentedViewController.provinceName = provinceName
-//        presentedViewController.initializeView()
         
         let provinceViewController = UIViewController.getViewController(viewControllerEnum: .province)
         if let provinceViewController = provinceViewController as? ProvinceViewController {
@@ -57,6 +42,7 @@ extension MainViewController: MapDelegate {
             sheet.largestUndimmedDetentIdentifier = .medium
             sheet.detents = [.medium(), .custom { context in return UIScreen.main.bounds.height/4 }]
             sheet.prefersGrabberVisible = true
+            sheet.delegate = self
         }
         present(provinceViewController, animated: true)
     }
@@ -72,6 +58,12 @@ extension MainViewController: UIScrollViewDelegate {
 //        print("**********************************")
         mapView.transformMapNode(origin: scrollView.contentOffset, size: scrollView.contentSize)
 //        return scrollBlankView
+    }
+}
+
+extension MainViewController: UISheetPresentationControllerDelegate {
+    func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
+        mapView.removeSelectShape()
     }
 }
 

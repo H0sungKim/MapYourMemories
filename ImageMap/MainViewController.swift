@@ -7,6 +7,7 @@
 
 import UIKit
 import Macaw
+import Combine
 
 class MainViewController: UIViewController {
 
@@ -14,6 +15,8 @@ class MainViewController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var scrollBlankView: ScrollBlankView!
     
+    private var scrollEventSubject = PassthroughSubject<UIScrollView, Never>()
+    private var cancellables = Set<AnyCancellable>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +25,28 @@ class MainViewController: UIViewController {
         
         scrollView.delegate = self
         scrollBlankView.belowView = mapView
+        
+        scrollEventSubject
+            .throttle(for: .milliseconds(100), scheduler: DispatchQueue.main, latest: false)
+            .sink { [weak self] scrollView in
+                print("##")
+                self?.mapView.transformMapNode = (scrollView.contentOffset, scrollView.contentSize)
+                var dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "HH:mm:ss:SSS"
+                print("1 : \(dateFormatter.string(from: Date()))")
+            }
+            .store(in: &cancellables)
+        
+        mapView.$transformMapNode.sink(receiveCompletion: { completion in
+            print("complete \(completion)")
+        }, receiveValue: { [weak self] value in
+            print("value \(value)")
+            guard let value = value else {
+                return
+            }
+            self?.mapView.transformMapNode(origin: value.origin, size: value.size)
+        })
+        .store(in: &cancellables)
     }
 }
 
@@ -33,7 +58,6 @@ extension MainViewController: MapDelegate {
     }
     
     func presentProvinceSheet(provinceName: String) {
-        
         let provinceViewController = UIViewController.getViewController(viewControllerEnum: .province)
         if let provinceViewController = provinceViewController as? ProvinceViewController {
             provinceViewController.provinceName = provinceName
@@ -50,14 +74,22 @@ extension MainViewController: MapDelegate {
 
 extension MainViewController: UIScrollViewDelegate {
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
-//        print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
-        mapView.transformMapNode(origin: scrollView.contentOffset, size: scrollView.contentSize)
+//        print("@")
+//        var dateFormatter = DateFormatter()
+//        dateFormatter.dateFormat = "HH:mm:ss:SSS"
+//        print("0 : \(dateFormatter.string(from: Date()))")
+        scrollEventSubject.send(scrollView)
+//        print("4 : \(dateFormatter.string(from: Date()))")
         return scrollBlankView
     }
     func scrollViewDidZoom(_ scrollView: UIScrollView) {
-//        print("**********************************")
-        mapView.transformMapNode(origin: scrollView.contentOffset, size: scrollView.contentSize)
-//        return scrollBlankView
+//        print("*")
+//        mapView.transformMapNode = (scrollView.contentOffset, scrollView.contentSize)
+//        var dateFormatter = DateFormatter()
+//        dateFormatter.dateFormat = "HH:mm:ss:SSS"
+//        print("0 : \(dateFormatter.string(from: Date()))")
+        scrollEventSubject.send(scrollView)
+//        print("4 : \(dateFormatter.string(from: Date()))")
     }
 }
 

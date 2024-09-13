@@ -24,6 +24,7 @@
 		961716212C651C9B007383FE /* ImageMapUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961716202C651C9B007383FE /* ImageMapUITestsLaunchTests.swift */; };
 		961716302C65E377007383FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9617162F2C65E377007383FE /* Main.storyboard */; };
 		961716322C65E388007383FE /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961716312C65E388007383FE /* MainViewController.swift */; };
+		965C1CFF2C8D434F00355DDF /* ProvinceImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965C1CFE2C8D434F00355DDF /* ProvinceImageModel.swift */; };
 		96B979D22C65EB670089FF45 /* Province.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B979D12C65EB670089FF45 /* Province.swift */; };
 		96B979D42C65EB760089FF45 /* argentinaLow.svg in Resources */ = {isa = PBXBuildFile; fileRef = 96B979D32C65EB760089FF45 /* argentinaLow.svg */; };
 		96B979D82C6613BC0089FF45 /* seoul.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 96B979D72C6613BC0089FF45 /* seoul.jpg */; };
@@ -72,6 +73,7 @@
 		961716202C651C9B007383FE /* ImageMapUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageMapUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		9617162F2C65E377007383FE /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		961716312C65E388007383FE /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		965C1CFE2C8D434F00355DDF /* ProvinceImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProvinceImageModel.swift; sourceTree = "<group>"; };
 		96B979D12C65EB670089FF45 /* Province.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Province.swift; sourceTree = "<group>"; };
 		96B979D32C65EB760089FF45 /* argentinaLow.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = argentinaLow.svg; sourceTree = "<group>"; };
 		96B979D72C6613BC0089FF45 /* seoul.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = seoul.jpg; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 				96B979DB2C6742580089FF45 /* MapView.swift */,
 				9609E48F2C6F675E000B2D18 /* ProvinceViewController.swift */,
 				9609E4912C6F6768000B2D18 /* Province.storyboard */,
+				965C1CFE2C8D434F00355DDF /* ProvinceImageModel.swift */,
 			);
 			path = ImageMap;
 			sourceTree = "<group>";
@@ -447,6 +450,7 @@
 				9609E4942C6F684E000B2D18 /* UIViewController+Ext.swift in Sources */,
 				9609E48E2C6F4133000B2D18 /* ProvinceManager.swift in Sources */,
 				961715FE2C651C9A007383FE /* AppDelegate.swift in Sources */,
+				965C1CFF2C8D434F00355DDF /* ProvinceImageModel.swift in Sources */,
 				9609E4902C6F675E000B2D18 /* ProvinceViewController.swift in Sources */,
 				961716322C65E388007383FE /* MainViewController.swift in Sources */,
 			);

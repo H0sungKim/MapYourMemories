@@ -1,9 +1,8 @@
 //
-//  MyView.swift
-//  GettingStarted
+//  MapView.swift
+//  ImageMap
 //
-//  Created by Yuri Strot on 11/9/16.
-//  Copyright © 2016 Exyte. All rights reserved.
+//  Created by 김호성 on 2024.08.09.
 //
 
 import Macaw
@@ -11,16 +10,21 @@ import Combine
 
 class MapView: MacawView {
     private var mapNode: Group
+    var screenBounds: CGRect?
+    let svgBounds: CGRect
     weak var delegate: MapDelegate?
-    @Published var transformMapNode: (origin: CGPoint, size: CGSize)?
+//    @Published var transformMapNode: (origin: CGPoint, size: CGSize)?
     
     required init?(coder aDecoder: NSCoder) {
         let map = try! SVGParser.parse(resource: "korea")
         mapNode = Group(contents: [map], place: .identity)
+        print("Hosung.Kim")
+        print(mapNode.bounds)
+        svgBounds = mapNode.bounds!.toCG()
         super.init(node: mapNode, coder: aDecoder)
         
         for province in ProvinceManager.shared.provinces {
-            map.nodeBy(tag: String(province.id))?.onTouchPressed({ [weak self] touch in
+            mapNode.nodeBy(tag: String(province.id))?.onTouchPressed({ [weak self] touch in
                 self?.setBackGroundImage(node: touch.node!, image: UIImage(named: "rocket.jpeg")!)
                 self?.delegate?.presentProvinceSheet(provinceName: province.name)
                 if let shape = touch.node as? Shape {
@@ -32,6 +36,9 @@ class MapView: MacawView {
                         clip: shape.clip
                     )
                     self?.mapNode.contents.append(select)
+//                    for province in ProvinceManager.shared.provinces {
+//                        print("\(province.name) \(map.nodeBy(tag: String(province.id))?.bounds)")
+//                    }
                 }
                 print(self?.mapNode.contents.count)
             })
@@ -55,12 +62,37 @@ class MapView: MacawView {
         return nil
     }
     
+    
+    
     func transformMapNode(origin: CGPoint, size: CGSize) {
+        // check node count and set background
+        var temp = 0
+        for province in ProvinceManager.shared.provinces {
+            guard let provinceBounds = mapNode.nodeBy(tag: String(province.id))?.bounds?.toCG(), let screenBounds = screenBounds else {
+                continue
+            }
+//            print(province.name)
+//            print(mapBounds)
+//            print(provinceBounds)
+            if CGRectIntersectsRect(screenBounds, provinceBounds) {
+                print("@@@@@@@@\(province.name)")
+                temp += 1
+            }
+        }
+        print(temp)
+//        guard let provinceBounds = mapNode.nodeBy(tag: "11110")?.bounds?.toCG(), let mapBounds = mapBounds else {
+//            return
+//        }
+//        
+//        print(mapBounds)
+//        print(provinceBounds)
+//        print(CGRectContainsRect(mapBounds, provinceBounds))
+        
         mapNode.place = Transform().move(-origin.x, -origin.y).scale(min(size.width/mapNode.bounds!.w, size.height/mapNode.bounds!.h), min(size.width/mapNode.bounds!.w, size.height/mapNode.bounds!.h))
-        print("Complete Transform")
+//        print("Complete Transform")
 //        var dateFormatter = DateFormatter()
 //        dateFormatter.dateFormat = "HH:mm:ss:SSS"
-//        print("Hosung.Kim : \(dateFormatter.string(from: Date()))")
+//        print("5 : \(dateFormatter.string(from: Date()))")
     }
     override func touchesBegan(_ touches: Set<MTouch>, with event: MEvent?) {
         delegate?.dismissProvinceSheet()

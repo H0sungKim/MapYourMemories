@@ -26,27 +26,29 @@ class MainViewController: UIViewController {
         scrollView.delegate = self
         scrollBlankView.belowView = mapView
         
-        scrollEventSubject
-            .throttle(for: .milliseconds(100), scheduler: DispatchQueue.main, latest: false)
-            .sink { [weak self] scrollView in
-                print("##")
-                self?.mapView.transformMapNode = (scrollView.contentOffset, scrollView.contentSize)
-                var dateFormatter = DateFormatter()
-                dateFormatter.dateFormat = "HH:mm:ss:SSS"
-                print("1 : \(dateFormatter.string(from: Date()))")
-            }
-            .store(in: &cancellables)
-        
-        mapView.$transformMapNode.sink(receiveCompletion: { completion in
-            print("complete \(completion)")
-        }, receiveValue: { [weak self] value in
-            print("value \(value)")
-            guard let value = value else {
-                return
-            }
-            self?.mapView.transformMapNode(origin: value.origin, size: value.size)
-        })
-        .store(in: &cancellables)
+//        scrollEventSubject
+//            .throttle(for: .milliseconds(100), scheduler: DispatchQueue.main, latest: false)
+//            .sink { [weak self] scrollView in
+//                print("###########################")
+//                self?.mapView.transformMapNode = (scrollView.contentOffset, scrollView.contentSize)
+//                var dateFormatter = DateFormatter()
+//                dateFormatter.dateFormat = "HH:mm:ss:SSS"
+//                print("1 : \(dateFormatter.string(from: Date()))")
+//            }
+//            .store(in: &cancellables)
+//        
+//        mapView.$transformMapNode.sink(receiveCompletion: { completion in
+//            print("complete \(completion)")
+//        }, receiveValue: { [weak self] value in
+//            print("value \(value)")
+//            guard let value = value else {
+//                return
+//            }
+//            DispatchQueue.main.async {
+//                self?.mapView.transformMapNode(origin: value.origin, size: value.size)
+//            }
+//        })
+//        .store(in: &cancellables)
     }
 }
 
@@ -74,22 +76,39 @@ extension MainViewController: MapDelegate {
 
 extension MainViewController: UIScrollViewDelegate {
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
-//        print("@")
+        print("@@@@@@@@@@@@@@@@@@")
+        print("\(scrollView.contentOffset) \(scrollView.contentSize)")
+        print("\(scrollView.bounds)")
+//        mapView.mapBounds = CGRect(x: scrollView.contentOffset.x*scrollView.bounds.width/scrollView.contentSize.width, y: scrollView.contentOffset.y*scrollView.bounds.height/scrollView.contentSize.height, width: mapView.mapNodeBounds.width*scrollView.bounds.width/scrollView.contentSize.width, height: mapView.mapNodeBounds.height*scrollView.bounds.height/scrollView.contentSize.height)
+        mapView.screenBounds = CGRect(x: scrollView.contentOffset.x*mapView.svgBounds.width/scrollView.contentSize.width, y: scrollView.contentOffset.y*mapView.svgBounds.width/scrollView.contentSize.width, width: scrollView.bounds.width*mapView.svgBounds.width/scrollView.contentSize.width, height: scrollView.bounds.height*mapView.svgBounds.width/scrollView.contentSize.width)
 //        var dateFormatter = DateFormatter()
 //        dateFormatter.dateFormat = "HH:mm:ss:SSS"
 //        print("0 : \(dateFormatter.string(from: Date()))")
-        scrollEventSubject.send(scrollView)
+//        DispatchQueue.global().async { [weak self] in
+//            self?.scrollEventSubject.send(scrollView)
+//            self?.mapView.transformMapNode = (scrollView.contentOffset, scrollView.contentSize)
+//        }
 //        print("4 : \(dateFormatter.string(from: Date()))")
+        mapView.transformMapNode(origin: scrollView.contentOffset, size: scrollView.contentSize)
+        
+//        mapView.transformMapNode = (scrollView.contentOffset, scrollView.contentSize)
         return scrollBlankView
     }
     func scrollViewDidZoom(_ scrollView: UIScrollView) {
-//        print("*")
-//        mapView.transformMapNode = (scrollView.contentOffset, scrollView.contentSize)
+        print("******************")
+        print("\(scrollView.contentOffset) \(scrollView.contentSize)")
+        print("\(scrollView.bounds)")
+//        mapView.mapBounds = CGRect(x: scrollView.contentOffset.x*scrollView.bounds.width/scrollView.contentSize.width, y: scrollView.contentOffset.y*scrollView.bounds.height/scrollView.contentSize.height, width: mapView.mapNodeBounds.width*scrollView.bounds.width/scrollView.contentSize.width, height: mapView.mapNodeBounds.height*scrollView.bounds.height/scrollView.contentSize.height)
+        mapView.screenBounds = CGRect(x: scrollView.contentOffset.x*mapView.svgBounds.width/scrollView.contentSize.width, y: scrollView.contentOffset.y*mapView.svgBounds.width/scrollView.contentSize.width, width: scrollView.bounds.width*mapView.svgBounds.width/scrollView.contentSize.width, height: scrollView.bounds.height*mapView.svgBounds.width/scrollView.contentSize.width)
 //        var dateFormatter = DateFormatter()
 //        dateFormatter.dateFormat = "HH:mm:ss:SSS"
 //        print("0 : \(dateFormatter.string(from: Date()))")
-        scrollEventSubject.send(scrollView)
+//        DispatchQueue.global().async { [weak self] in
+//            self?.mapView.transformMapNode = (scrollView.contentOffset, scrollView.contentSize)
+//        }
 //        print("4 : \(dateFormatter.string(from: Date()))")
+        mapView.transformMapNode(origin: scrollView.contentOffset, size: scrollView.contentSize)
+//        mapView.transformMapNode = (scrollView.contentOffset, scrollView.contentSize)
     }
 }
 

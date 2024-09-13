@@ -7,6 +7,11 @@
 
 import Foundation
 
+enum ProvinceEnum: Int {
+    case a = 11110
+    
+}
+
 class ProvinceManager {
     public static let shared = ProvinceManager()
     

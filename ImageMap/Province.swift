@@ -11,10 +11,15 @@ struct Province {
     var id : Int
     var name : String
     var image: UIImage?
+    var color: UIColor?
     
     init(id: Int, name: String, image: UIImage? = nil) {
         self.id = id
         self.name = name
+        self.image = image
+    }
+    
+    mutating func setImage(image: UIImage) {
         self.image = image
     }
 }

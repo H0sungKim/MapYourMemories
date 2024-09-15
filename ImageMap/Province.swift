@@ -21,5 +21,14 @@ struct Province {
     
     mutating func setImage(image: UIImage) {
         self.image = image
+        setColor(image: image)
+    }
+    
+    mutating func setColor(color: UIColor) {
+        self.color = color
+    }
+    
+    mutating func setColor(image: UIImage) {
+        self.color = image.dominantColor
     }
 }

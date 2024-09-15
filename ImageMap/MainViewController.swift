@@ -10,6 +10,8 @@ import Macaw
 import Combine
 
 class MainViewController: UIViewController {
+    
+    private var scrollViewOnMoving: Bool = false
 
     @IBOutlet weak var mapView: MapView!
     @IBOutlet weak var scrollView: UIScrollView!
@@ -26,14 +28,29 @@ class MainViewController: UIViewController {
         scrollView.delegate = self
         scrollBlankView.belowView = mapView
         
+        mapView.scrollViewBounds = scrollView.bounds
+        
+        ProvinceManager.shared.provinces[0].setImage(image: UIImage(named: "rocket.jpeg")!)
+        ProvinceManager.shared.provinces[1].setImage(image: UIImage(named: "rocket.jpeg")!)
+        ProvinceManager.shared.provinces[2].setImage(image: UIImage(named: "rocket.jpeg")!)
+        ProvinceManager.shared.provinces[3].setImage(image: UIImage(named: "rocket.jpeg")!)
+        ProvinceManager.shared.provinces[4].setImage(image: UIImage(named: "rocket.jpeg")!)
+        ProvinceManager.shared.provinces[5].setImage(image: UIImage(named: "rocket.jpeg")!)
+        ProvinceManager.shared.provinces[6].setImage(image: UIImage(named: "rocket.jpeg")!)
+        ProvinceManager.shared.provinces[7].setImage(image: UIImage(named: "rocket.jpeg")!)
+        ProvinceManager.shared.provinces[8].setImage(image: UIImage(named: "rocket.jpeg")!)
+        ProvinceManager.shared.provinces[9].setImage(image: UIImage(named: "rocket.jpeg")!)
+        ProvinceManager.shared.provinces[10].setImage(image: UIImage(named: "rocket.jpeg")!)
+        ProvinceManager.shared.provinces[11].setImage(image: UIImage(named: "rocket.jpeg")!)
+        ProvinceManager.shared.provinces[12].setImage(image: UIImage(named: "rocket.jpeg")!)
+        
+        mapView.setMapBackGrounds()
+        
+        mapView.transformMap(origin: scrollView.contentOffset, size: scrollView.contentSize)
 //        scrollEventSubject
 //            .throttle(for: .milliseconds(100), scheduler: DispatchQueue.main, latest: false)
 //            .sink { [weak self] scrollView in
-//                print("###########################")
 //                self?.mapView.transformMapNode = (scrollView.contentOffset, scrollView.contentSize)
-//                var dateFormatter = DateFormatter()
-//                dateFormatter.dateFormat = "HH:mm:ss:SSS"
-//                print("1 : \(dateFormatter.string(from: Date()))")
 //            }
 //            .store(in: &cancellables)
 //        
@@ -75,12 +92,25 @@ extension MainViewController: MapDelegate {
 }
 
 extension MainViewController: UIScrollViewDelegate {
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        print("begindragging")
+        scrollViewOnMoving = true
+    }
+    func scrollViewWillBeginZooming(_ scrollView: UIScrollView, with view: UIView?) {
+        print("beginzooming")
+        scrollViewOnMoving = true
+    }
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
         print("@@@@@@@@@@@@@@@@@@")
-        print("\(scrollView.contentOffset) \(scrollView.contentSize)")
-        print("\(scrollView.bounds)")
-//        mapView.mapBounds = CGRect(x: scrollView.contentOffset.x*scrollView.bounds.width/scrollView.contentSize.width, y: scrollView.contentOffset.y*scrollView.bounds.height/scrollView.contentSize.height, width: mapView.mapNodeBounds.width*scrollView.bounds.width/scrollView.contentSize.width, height: mapView.mapNodeBounds.height*scrollView.bounds.height/scrollView.contentSize.height)
-        mapView.screenBounds = CGRect(x: scrollView.contentOffset.x*mapView.svgBounds.width/scrollView.contentSize.width, y: scrollView.contentOffset.y*mapView.svgBounds.width/scrollView.contentSize.width, width: scrollView.bounds.width*mapView.svgBounds.width/scrollView.contentSize.width, height: scrollView.bounds.height*mapView.svgBounds.width/scrollView.contentSize.width)
+        print(scrollViewOnMoving)
+//        print(scrollView.isZooming)
+//        print(scrollView.isDragging)
+//        print(scrollView.isTracking)
+//        print(scrollView.isDecelerating)
+//        print(scrollView.isZoomBouncing)
+//        print(scrollView.is
+//        print("\(scrollView.contentOffset) \(scrollView.contentSize)")
+//        print("\(scrollView.bounds)")
 //        var dateFormatter = DateFormatter()
 //        dateFormatter.dateFormat = "HH:mm:ss:SSS"
 //        print("0 : \(dateFormatter.string(from: Date()))")
@@ -89,17 +119,17 @@ extension MainViewController: UIScrollViewDelegate {
 //            self?.mapView.transformMapNode = (scrollView.contentOffset, scrollView.contentSize)
 //        }
 //        print("4 : \(dateFormatter.string(from: Date()))")
-        mapView.transformMapNode(origin: scrollView.contentOffset, size: scrollView.contentSize)
-        
+        if scrollViewOnMoving {
+            mapView.transformMap(origin: scrollView.contentOffset, size: scrollView.contentSize)
+        }
 //        mapView.transformMapNode = (scrollView.contentOffset, scrollView.contentSize)
         return scrollBlankView
     }
     func scrollViewDidZoom(_ scrollView: UIScrollView) {
         print("******************")
-        print("\(scrollView.contentOffset) \(scrollView.contentSize)")
-        print("\(scrollView.bounds)")
-//        mapView.mapBounds = CGRect(x: scrollView.contentOffset.x*scrollView.bounds.width/scrollView.contentSize.width, y: scrollView.contentOffset.y*scrollView.bounds.height/scrollView.contentSize.height, width: mapView.mapNodeBounds.width*scrollView.bounds.width/scrollView.contentSize.width, height: mapView.mapNodeBounds.height*scrollView.bounds.height/scrollView.contentSize.height)
-        mapView.screenBounds = CGRect(x: scrollView.contentOffset.x*mapView.svgBounds.width/scrollView.contentSize.width, y: scrollView.contentOffset.y*mapView.svgBounds.width/scrollView.contentSize.width, width: scrollView.bounds.width*mapView.svgBounds.width/scrollView.contentSize.width, height: scrollView.bounds.height*mapView.svgBounds.width/scrollView.contentSize.width)
+        print(scrollViewOnMoving)
+//        print("\(scrollView.contentOffset) \(scrollView.contentSize)")
+//        print("\(scrollView.bounds)")
 //        var dateFormatter = DateFormatter()
 //        dateFormatter.dateFormat = "HH:mm:ss:SSS"
 //        print("0 : \(dateFormatter.string(from: Date()))")
@@ -107,8 +137,28 @@ extension MainViewController: UIScrollViewDelegate {
 //            self?.mapView.transformMapNode = (scrollView.contentOffset, scrollView.contentSize)
 //        }
 //        print("4 : \(dateFormatter.string(from: Date()))")
-        mapView.transformMapNode(origin: scrollView.contentOffset, size: scrollView.contentSize)
+        if scrollViewOnMoving {
+            mapView.transformMap(origin: scrollView.contentOffset, size: scrollView.contentSize)
+        }
 //        mapView.transformMapNode = (scrollView.contentOffset, scrollView.contentSize)
+    }
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if !decelerate {
+            print("end dragging")
+            mapView.setImageMap()
+            scrollViewOnMoving = false
+        }
+    }
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        print("end decelerating")
+        mapView.setImageMap()
+        scrollViewOnMoving = false
+    }
+    func scrollViewDidEndZooming(_ scrollView: UIScrollView, with view: UIView?, atScale scale: CGFloat) {
+        print("end zooming")
+        mapView.setImageMap()
+        scrollViewOnMoving = false
     }
 }
 
@@ -123,6 +173,7 @@ class ScrollBlankView: UIView {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         belowView?.touchesBegan(touches, with: event)
+        
     }
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesMoved(touches, with: event)

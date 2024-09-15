@@ -19,7 +19,7 @@ class ProvinceManager {
         
     }
     
-    let provinces: [Province] = [
+    var provinces: [Province] = [
         Province(id: 11110, name: "서울특별시 종로구"),
         Province(id: 11140, name: "서울특별시 중구"),
         Province(id: 11170, name: "서울특별시 용산구"),

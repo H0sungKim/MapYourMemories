@@ -20,7 +20,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                                 <color key="backgroundColor" red="0.75686274509803919" green="0.88235294117647056" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" maximumZoomScale="7" translatesAutoresizingMaskIntoConstraints="NO" id="XUR-iZ-v8f">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" maximumZoomScale="10" translatesAutoresizingMaskIntoConstraints="NO" id="XUR-iZ-v8f">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                                 <subviews>
                                     <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="QHH-XY-yrG" customClass="ScrollBlankView" customModule="ImageMap" customModuleProvider="target">

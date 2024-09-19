@@ -11,7 +11,7 @@ import Combine
 
 class MainViewController: UIViewController {
     
-    private var scrollViewOnMoving: Bool = false
+    private var scrollViewOnMoving: Bool = true
 
     @IBOutlet weak var mapView: MapView!
     @IBOutlet weak var scrollView: UIScrollView!
@@ -72,7 +72,7 @@ class MainViewController: UIViewController {
 extension MainViewController: MapDelegate {
     func dismissProvinceSheet() {
         if let presentedViewController = self.presentedViewController as? ProvinceViewController {
-            presentedViewController.dismiss(animated: true, completion: nil)
+            presentedViewController.dismiss(animated: false, completion: nil)
         }
     }
     

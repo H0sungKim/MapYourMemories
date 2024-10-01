@@ -26,8 +26,7 @@
 		961716322C65E388007383FE /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961716312C65E388007383FE /* MainViewController.swift */; };
 		965C1CFF2C8D434F00355DDF /* ProvinceImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965C1CFE2C8D434F00355DDF /* ProvinceImageModel.swift */; };
 		965C1D812C9453BD00355DDF /* UIImage+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965C1D802C9453BD00355DDF /* UIImage+Ext.swift */; };
-		96B979D22C65EB670089FF45 /* Province.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B979D12C65EB670089FF45 /* Province.swift */; };
-		96B979D42C65EB760089FF45 /* argentinaLow.svg in Resources */ = {isa = PBXBuildFile; fileRef = 96B979D32C65EB760089FF45 /* argentinaLow.svg */; };
+		96B979D22C65EB670089FF45 /* ProvinceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B979D12C65EB670089FF45 /* ProvinceModel.swift */; };
 		96B979D82C6613BC0089FF45 /* seoul.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 96B979D72C6613BC0089FF45 /* seoul.jpg */; };
 		96B979DC2C6742580089FF45 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B979DB2C6742580089FF45 /* MapView.swift */; };
 		DCC808D741B4E16280135BC0 /* Pods_ImageMap_ImageMapUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4614B10D3085BC74BDCB651D /* Pods_ImageMap_ImageMapUITests.framework */; };
@@ -76,8 +75,7 @@
 		961716312C65E388007383FE /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		965C1CFE2C8D434F00355DDF /* ProvinceImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProvinceImageModel.swift; sourceTree = "<group>"; };
 		965C1D802C9453BD00355DDF /* UIImage+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Ext.swift"; sourceTree = "<group>"; };
-		96B979D12C65EB670089FF45 /* Province.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Province.swift; sourceTree = "<group>"; };
-		96B979D32C65EB760089FF45 /* argentinaLow.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = argentinaLow.svg; sourceTree = "<group>"; };
+		96B979D12C65EB670089FF45 /* ProvinceModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProvinceModel.swift; sourceTree = "<group>"; };
 		96B979D72C6613BC0089FF45 /* seoul.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = seoul.jpg; sourceTree = "<group>"; };
 		96B979DB2C6742580089FF45 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		9DD3DA96E55A0E661B34EC98 /* Pods-ImageMap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImageMap.debug.xcconfig"; path = "Target Support Files/Pods-ImageMap/Pods-ImageMap.debug.xcconfig"; sourceTree = "<group>"; };
@@ -151,8 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				9609E4932C6F684E000B2D18 /* UIViewController+Ext.swift */,
-				96B979D32C65EB760089FF45 /* argentinaLow.svg */,
-				96B979D12C65EB670089FF45 /* Province.swift */,
+				96B979D12C65EB670089FF45 /* ProvinceModel.swift */,
 				9615367D2C70E76A00563983 /* rocket.jpeg */,
 				9609E48D2C6F4133000B2D18 /* ProvinceManager.swift */,
 				961715FD2C651C9A007383FE /* AppDelegate.swift */,
@@ -319,7 +316,6 @@
 				961716302C65E377007383FE /* Main.storyboard in Resources */,
 				96B979D82C6613BC0089FF45 /* seoul.jpg in Resources */,
 				9609E48C2C6DFB78000B2D18 /* korea.svg in Resources */,
-				96B979D42C65EB760089FF45 /* argentinaLow.svg in Resources */,
 				9609E4922C6F6768000B2D18 /* Province.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -448,7 +444,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				96B979D22C65EB670089FF45 /* Province.swift in Sources */,
+				96B979D22C65EB670089FF45 /* ProvinceModel.swift in Sources */,
 				96B979DC2C6742580089FF45 /* MapView.swift in Sources */,
 				9609E4942C6F684E000B2D18 /* UIViewController+Ext.swift in Sources */,
 				9609E48E2C6F4133000B2D18 /* ProvinceManager.swift in Sources */,

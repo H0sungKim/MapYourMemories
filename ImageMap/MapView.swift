@@ -95,7 +95,7 @@ class MapView: MacawView {
         var alpha: CGFloat = 0
            
         color.getRed(&red, green: &green, blue: &blue, alpha: &alpha)
-        shape.fill = Color.rgba(r: Int(red), g: Int(green), b: Int(blue), a: alpha)
+        shape.fill = Color.rgba(r: Int(red*255), g: Int(green*255), b: Int(blue*255), a: alpha)
     
         return shape
     }

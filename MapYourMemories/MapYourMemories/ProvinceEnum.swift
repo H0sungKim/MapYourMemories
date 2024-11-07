@@ -11,6 +11,33 @@ protocol ProvinceType {
     var title: String { get }
 }
 
+enum MapEnum: String, CaseIterable {
+    case world
+    case korea
+    
+    var provinceEnum: ProvinceType.Type {
+        switch self {
+        case .world: return WorldProvinceEnum.self
+        case .korea: return SouthKoreaProvinceEnum.self
+        }
+    }
+    var svgFileName: String {
+        switch self {
+        case .world: return "world.svg"
+        case .korea: return "korea.svg"
+        }
+    }
+}
+
+enum WorldProvinceEnum: String, CaseIterable {
+    case andorra
+}
+extension WorldProvinceEnum: ProvinceType {
+    var title: String {
+        return ""
+    }
+}
+
 enum SouthKoreaProvinceEnum: String, CaseIterable {
     
     // Seoul

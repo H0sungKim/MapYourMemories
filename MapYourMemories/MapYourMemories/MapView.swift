@@ -22,9 +22,6 @@ class MapView: MacawView {
     required init?(coder aDecoder: NSCoder) {
         map = Group()
         super.init(node: map, coder: aDecoder)
-    }
-    
-    override func layoutSubviews() {
         let svg = try! SVGParser.parse(resource: "korea")
         let rate = min(frame.width/svg.bounds!.w, frame.height/svg.bounds!.h)
         map = Group(contents: [svg], place: .identity)
